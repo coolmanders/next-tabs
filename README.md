@@ -18,7 +18,7 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-- Node.js
+- Node.js (18.17 | or newer)
 - npm or yarn
 
 ### Installation
