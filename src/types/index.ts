@@ -14,6 +14,6 @@ export type direction = "left" | "right";
 
 export interface ArrowProps {
   direction: direction;
-  isDisabled: boolean;
+  isDisabled?: boolean;
   onClick: () => void;
 }

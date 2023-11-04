@@ -2,7 +2,14 @@ import React from "react";
 
 import { ArrowProps } from "@/types";
 
-const Arrow: React.FC<ArrowProps> = ({ direction, onClick, isDisabled }) => (
+/**
+ * Arrow component renders an arrow icon.
+ *
+ * @component
+ * @example
+ * <Arrow direction="left" onClick={() => console.log('Arrow clicked')} isDisabled/>
+ */
+const Arrow: React.FC<ArrowProps> = ({ direction, onClick, isDisabled = false }) => (
   <button
     onClick={onClick}
     aria-label={direction === "left" ? "Scroll Left" : "Scroll Right"}
