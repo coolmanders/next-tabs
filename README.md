@@ -47,14 +47,6 @@ yarn dev
 
 Then open your web browser and navigate to [http://localhost:3000](http://localhost:3000) to view the application.
 
-## Contributing
-
-Contributions are always welcome! Please read the contribution guidelines first.
-
-## License
-
-This project is open-sourced under the MIT license.
-
 ## Contact
 
 If you have any questions about this project, please feel free to contact me at prace@pourtomas.cz.
