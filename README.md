@@ -18,7 +18,7 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-- Node.js
+- Node.js (18.17 | or newer)
 - npm or yarn
 
 ### Installation
@@ -46,14 +46,6 @@ yarn dev
 ```
 
 Then open your web browser and navigate to [http://localhost:3000](http://localhost:3000) to view the application.
-
-## Contributing
-
-Contributions are always welcome! Please read the contribution guidelines first.
-
-## License
-
-This project is open-sourced under the MIT license.
 
 ## Contact
 
