@@ -76,7 +76,7 @@ const Page = () => {
   }, [updateVisibleTabs]);
 
   return (
-    <div className="tabs">
+    <nav className="tabs">
       <Arrow
         direction="left"
         onClick={() => scrollTabs("left")}
@@ -94,7 +94,7 @@ const Page = () => {
         onClick={() => scrollTabs("right")}
         isDisabled={!isCanScrollRight}
       />
-    </div>
+    </nav>
   );
 };
 

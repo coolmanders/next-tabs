@@ -12,7 +12,7 @@ import { TabsProps } from "@/types";
  * <Tabs tabs={tabs} activeTab={activeTab} onTabClick={(tab) => console.log(tab)} />
  */
 const Tabs: React.FC<TabsProps> = ({ tabs, activeTab, onTabClick }) => (
-  <nav className="flex w-full">
+  <div className="flex w-full">
     <ul role="tablist" className="flex-grow flex justify-between">
       {tabs.map((tab, index) => (
         <li
@@ -27,7 +27,7 @@ const Tabs: React.FC<TabsProps> = ({ tabs, activeTab, onTabClick }) => (
         </li>
       ))}
     </ul>
-  </nav>
+  </div>
 );
 
 export default Tabs;
