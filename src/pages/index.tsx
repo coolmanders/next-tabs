@@ -47,11 +47,7 @@ const Page = () => {
 
   const updateVisibleTabs = useCallback(() => {
     if (!tabsContainerRef.current) return;
-    const containerWidth = tabsContainerRef.current.clientWidth;
-    const minTabWidthPercent = 0.15;
-
-    const minTabWidth = containerWidth * minTabWidthPercent;
-    const maxVisibleTabs = Math.floor(containerWidth / minTabWidth);
+    const maxVisibleTabs = 6
 
     setVisibleTabs(
       tabs.slice(firstVisibleTabIndex, maxVisibleTabs + firstVisibleTabIndex)
