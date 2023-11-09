@@ -11,28 +11,22 @@ import Arrow from "@/components/Arrow";
 
 import { Tab, direction } from "@/types";
 
+const tabs: Tab[] = [
+  { label: "My Details", url: "/my-details", id: "my-details" },
+  { label: "Profile", url: "/profile", id: "profile" },
+  { label: "Password", url: "/password", id: "password" },
+  { label: "Team", url: "/team", id: "team" },
+  { label: "Plan", url: "/plan", id: "plan" },
+  { label: "Billing", url: "/billing", id: "billing" },
+  { label: "Email", url: "/email", id: "email" },
+  { label: "Notifications", url: "/notifications", id: "notifications" },
+  { label: "Integrations", url: "/integrations", id: "integrations" },
+  { label: "API", url: "/api", id: "api" },
+  { label: "Wallet", url: "/wallet", id: "wallet" },
+  { label: "VIP", url: "/vip", id: "vip" },
+];
+
 const Page = () => {
-  const tabs: Tab[] = useMemo(
-    () => [
-      { label: "My Details", url: "/my-details", id: "my-details" },
-      { label: "Profile", url: "/profile", id: "profile" },
-      { label: "Password", url: "/password", id: "password" },
-      { label: "Team", url: "/team", id: "team" },
-      { label: "Plan", url: "/plan", id: "plan" },
-      { label: "Billing", url: "/billing", id: "billing" },
-      { label: "Email", url: "/email", id: "email" },
-      { label: "Notifications", url: "/notifications", id: "notifications" },
-      { label: "Integrations", url: "/integrations", id: "integrations" },
-      { label: "API", url: "/api", id: "api" },
-      { label: "Wallet", url: "/wallet", id: "wallet" },
-      { label: "VIP", url: "/vip", id: "vip" },
-    ],
-    []
-  );
-
-  const [isCanScrollLeft, setIsCanScrollLeft] = useState(false);
-  const [isCanScrollRight, setIsCanScrollRight] = useState(false);
-
   const [firstVisibleTabIndex, setFirstVisibleTabIndex] = useState(0);
 
   const [activeTab, setActiveTab] = useState<Tab>(tabs[0]);
@@ -59,12 +53,10 @@ const Page = () => {
     const minTabWidth = containerWidth * minTabWidthPercent;
     const maxVisibleTabs = Math.floor(containerWidth / minTabWidth);
 
-    setIsCanScrollLeft(firstVisibleTabIndex > 0);
-    setIsCanScrollRight(firstVisibleTabIndex + maxVisibleTabs < tabs.length);
     setVisibleTabs(
       tabs.slice(firstVisibleTabIndex, maxVisibleTabs + firstVisibleTabIndex)
     );
-  }, [tabs, firstVisibleTabIndex]);
+  }, [firstVisibleTabIndex]);
 
   useEffect(() => {
     updateVisibleTabs();
@@ -80,7 +72,7 @@ const Page = () => {
       <Arrow
         direction="left"
         onClick={() => scrollTabs("left")}
-        isDisabled={!isCanScrollLeft}
+        isDisabled={firstVisibleTabIndex === 0}
       />
       <div ref={tabsContainerRef} className="flex-grow">
         <Tabs
@@ -92,7 +84,7 @@ const Page = () => {
       <Arrow
         direction="right"
         onClick={() => scrollTabs("right")}
-        isDisabled={!isCanScrollRight}
+        isDisabled={firstVisibleTabIndex + visibleTabs.length >= tabs.length}
       />
     </nav>
   );
