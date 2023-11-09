@@ -1,10 +1,4 @@
-import React, {
-  useEffect,
-  useMemo,
-  useCallback,
-  useRef,
-  useState,
-} from "react";
+import React, { useEffect, useState } from "react";
 
 import Tabs from "@/components/Tabs";
 import Arrow from "@/components/Arrow";
@@ -32,8 +26,6 @@ const Page = () => {
   const [activeTab, setActiveTab] = useState<Tab>(tabs[0]);
   const [visibleTabs, setVisibleTabs] = useState<Tab[]>([]);
 
-  const tabsContainerRef = useRef<HTMLDivElement>(null);
-
   const scrollTabs = (direction: direction) => {
     if (direction === "left") {
       setFirstVisibleTabIndex((prevValue) => Math.max(0, prevValue - 1));
@@ -45,23 +37,13 @@ const Page = () => {
     }
   };
 
-  const updateVisibleTabs = useCallback(() => {
-    if (!tabsContainerRef.current) return;
-    const maxVisibleTabs = 6
+  useEffect(() => {
+    const maxVisibleTabs = 6;
 
     setVisibleTabs(
       tabs.slice(firstVisibleTabIndex, maxVisibleTabs + firstVisibleTabIndex)
     );
   }, [firstVisibleTabIndex]);
-
-  useEffect(() => {
-    updateVisibleTabs();
-    window.addEventListener("resize", updateVisibleTabs);
-
-    return () => {
-      window.removeEventListener("resize", updateVisibleTabs);
-    };
-  }, [updateVisibleTabs]);
 
   return (
     <nav className="tabs">
@@ -70,7 +52,7 @@ const Page = () => {
         onClick={() => scrollTabs("left")}
         isDisabled={firstVisibleTabIndex === 0}
       />
-      <div ref={tabsContainerRef} className="flex-grow">
+      <div className="flex-grow">
         <Tabs
           tabs={visibleTabs}
           activeTab={activeTab}
