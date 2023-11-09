@@ -4,9 +4,9 @@ This project is an implementation of a responsive tabs component using Next.js, 
 
 ## Technologies Used
 
-- Next.js for the React framework.
-- Tailwind CSS for styling.
-- TypeScript for static type checking.
+- TypeScript
+- Next.js
+- Tailwind
 
 ## Author
 
